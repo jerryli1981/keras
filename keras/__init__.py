@@ -13,3 +13,5 @@ See http://keras.io/
 """
 
 __version__ = '0.2.0'
+
+from . import models
