@@ -45,6 +45,15 @@ def categorical_crossentropy(y_true, y_pred):
     cce = T.nnet.categorical_crossentropy(y_pred, y_true)
     return cce
 
+def kl_divergence(y_true, y_pred):
+
+    y_pred = T.clip(y_pred, epsilon, 1.0 - epsilon)
+    y_true = T.clip(y_true, epsilon, 1.0 - epsilon)
+
+    kld = T.mean(y_true * ( T.log(y_true) - T.log(y_pred)))
+
+    return kld
+
 
 def binary_crossentropy(y_true, y_pred):
     y_pred = T.clip(y_pred, epsilon, 1.0 - epsilon)
