@@ -5,6 +5,9 @@ import theano.tensor as T
 def softmax(x):
     return T.nnet.softmax(x.reshape((-1, x.shape[-1]))).reshape(x.shape)
 
+def logsoftmax(x):
+    return T.log(softmax(x))
+
 
 def time_distributed_softmax(x):
     import warnings

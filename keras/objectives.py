@@ -51,7 +51,13 @@ def kl_divergence(y_true, y_pred):
     y_true = T.clip(y_true, epsilon, 1.0 - epsilon)
 
     kld = T.mean(y_true * ( T.log(y_true) - T.log(y_pred)))
+    return kld
 
+def kl_divergence_log(y_true, y_pred):
+
+    y_true = T.clip(y_true, epsilon, 1.0 - epsilon)
+
+    kld = T.mean(y_true * ( T.log(y_true) - y_pred))
     return kld
 
 
